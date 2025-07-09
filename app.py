@@ -16,7 +16,7 @@ st.title("📊 2D / 3D Graph Plotter")
 
 #----user input----
 st.markdown("Enter a mathematical function using 'x' for 2D or 'x' and 'y' for 3D.")
-func_input = st.text_input("🔢 Enter Function:")
+func_input = st.text_input("🔢 Enter Function:", placeholder="sin(x)")
 plot_type = st.radio("📐 Plot Type:", ["2D", "3D"])
 
 #custom axis range
