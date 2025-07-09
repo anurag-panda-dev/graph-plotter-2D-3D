@@ -1,7 +1,8 @@
 streamlit==1.44.1
 streamlit-option-menu==0.4.0
 streamlit-slickgrid==0.1.11
-kaleido==1.0.0
 plotly==6.1.2
 numpy==1.26.4
 sympy==1.13.1
+base64
+pillow
