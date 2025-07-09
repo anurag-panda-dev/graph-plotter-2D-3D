@@ -4,5 +4,5 @@ streamlit-slickgrid==0.1.11
 plotly==6.1.2
 numpy==1.26.4
 sympy==1.13.1
-base64
-pillow
+#base64
+pillow==11.2.1
