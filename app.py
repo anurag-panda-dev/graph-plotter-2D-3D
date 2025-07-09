@@ -3,6 +3,8 @@ import numpy as np
 import plotly.graph_objects as go
 import sympy as sp
 from io import BytesIO
+from PIL import Image
+import base64
 
 
 #page setup
@@ -81,13 +83,16 @@ if plot_type == "2D":
         st.plotly_chart(fig, use_container_width=True)
         
         #save image
-        img_bytes = fig.to_image(format="png")
-        st.download_button(
-            label="Download Plot as PNG",
-            data=BytesIO(img_bytes),
-            file_name="plot.png",
-            mime="image/png"
-        )
+        fig_html = fig.to_html(include_plotlyjs='cdn')
+        st.markdown(f"""
+            <div>
+                {fig_html}
+                <a href="data:image/png;base64,{base64.b64encode(fig.to_image(format='png')).decode()}" 
+                   download="{safe_filename}.png">
+                   📥 Download Plot as PNG
+                </a>
+            </div>
+        """, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error in plotting: {e}")
 
@@ -110,13 +115,16 @@ else:
         st.plotly_chart(fig, use_container_width=True)
 
         # Save as image
-        img_bytes = fig.to_image(format="png")
-        st.download_button(
-            label="💾 Download Plot as PNG",
-            data=BytesIO(img_bytes),
-            file_name="3d_graph.png",
-            mime="image/png"
-        )
+        fig_html = fig.to_html(include_plotlyjs='cdn')
+        st.markdown(f"""
+            <div>
+                {fig_html}
+                <a href="data:image/png;base64,{base64.b64encode(fig.to_image(format='png')).decode()}" 
+                   download="{safe_filename}.png">
+                   📥 Download Plot as PNG
+                </a>
+            </div>
+        """, unsafe_allow_html=True)
     except Exception as e:
         st.error(f"Error in plotting: {e}")
         
