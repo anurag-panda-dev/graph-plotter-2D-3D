@@ -6,3 +6,5 @@ numpy==1.26.4
 sympy==1.13.1
 #base64
 pillow==11.2.1
+matplotlib==3.7.2
+matplotlib-inline==0.1.6
